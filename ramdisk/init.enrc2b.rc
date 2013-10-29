@@ -213,16 +213,6 @@ on boot
 # backlight
     chown system system /sys/class/backlight/tegra-pwm-bl/brightness
 
-#S2W
-	chown system system /sys/android_touch/sweep2wake
-	chown system system /sys/android_touch/s2w_min_distance
-	chown system system /sys/android_touch/s2w_allow_stroke
-    chown system system /sys/android_touch/s2w_register_threshold
-	chown system system /sys/android_touch/s2w_allow_double_tap
-    chown system system /sys/android_touch/s2w_double_tap_duration
-    chown system system /sys/android_touch/s2w_double_tap_threshold
-    chown system system /sys/android_touch/s2w_double_tap_barrier_y
-		
 # didim
     chown system system /sys/class/graphics/fb0/device/smartdimmer/enable
     chown system system /sys/class/graphics/fb0/device/smartdimmer/aggressiveness
@@ -296,11 +286,6 @@ on boot
     mkdir /data/audio
     chmod 755 /data/audio
     chown media audio /data/audio
-    
-service pollyd /system/bin/pollyd
-    class main
-    user root
-    group root
     
 # bugreport is triggered by the VOLUME-DOWN and VOLUME-UP keys/
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
