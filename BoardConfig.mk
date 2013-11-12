@@ -56,41 +56,9 @@ TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
 
 # dont build docs
 DISABLE_DROIDDOC := true
-#TARGET_PREBUILT_KERNEL := device/htc/enrc2b/recovery/recovery-kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/htc/enrc2b/ramdisk/fstab.enrc2b
 RECOVERY_FSTAB_VERSION := 2 
 
-# Device specific SELinux policies
-BOARD_SEPOLICY_DIRS += \
-    device/htc/enrc2b/selinux
-
-#BOARD_SEPOLICY_UNION +=
-
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
-
-#SU
-
-#SUPERUSER_EMBEDDED := true
-#SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
-
-# SELINUX Defines
-BOARD_SEPOLICY_DIRS := \
-    device/htc/enrc2b/sepolicy
-
-BOARD_SEPOLICY_UNION := \
-        file_contexts \
-        genfs_contexts \
-        app.te \
-        btmacreader.te \
-        device.te \
-        drmserver.te \
-        init_shell.te \
-        file.te \
-        rild.te \
-        sensors_config.te \
-        shell.te \
-        surfaceflinger.te \
-        system.te \
-        zygote.te
