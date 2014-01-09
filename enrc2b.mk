@@ -43,16 +43,23 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gpsconfig_release.xml:system/etc/gps/gpsconfig_release.xml \
     $(LOCAL_PATH)/configs/htcfs.conf:system/etc/htcfs.conf \
     $(LOCAL_PATH)/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
-    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/configs/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
     $(LOCAL_PATH)/configs/calibration:system/etc/calibration \
     $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf \
     $(LOCAL_PATH)/configs/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
+# BT
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
 #Audio packages
 PRODUCT_PACKAGES += \
-    libinvensense_mpl
+    libinvensense_mpl \
+    audio.r_submix.default \
+    audio.a2dp.default \
+    audio.usb.default
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -67,10 +74,6 @@ PRODUCT_PACKAGES += \
 #NFC
 PRODUCT_PACKAGES += \
     libnfc_ndef
-
-# Power
-PRODUCT_PACKAGES += \
-    power.tegra
         
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
@@ -86,6 +89,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.tegra.nvmmlite=1 \
     ro.vendor.extension_library=/system/lib/libhtc-opt2.so \
     tf.enable=y
+
+# Set ART as default runtime
+PRODUCT_RUNTIMES += runtime_libart_default
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

@@ -32,7 +32,6 @@ WIFI_DRIVER_FW_PATH_P2P     := "/system/etc/firmware/fw_bcm4334_p2p.bin"
 # BT
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/enrc2b/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/htc/enrc2b/bluetooth/vnd_enrc2b.txt
 
 # HTC ril compatability
 TARGET_PROVIDES_LIBRIL := device/htc/enrc2b/proprietary/lib/libhtc-ril.so
@@ -57,14 +56,9 @@ TARGET_KERNEL_CONFIG := cyanogenmod_enrc2b_defconfig
 
 # dont build docs
 DISABLE_DROIDDOC := true
-#TARGET_PREBUILT_KERNEL := device/htc/enrc2b/recovery/recovery-kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/htc/enrc2b/ramdisk/fstab.enrc2b
 RECOVERY_FSTAB_VERSION := 2 
 
-# Device specific SELinux policies
-BOARD_SEPOLICY_DIRS += \
-    device/htc/enrc2b/selinux
-
-#BOARD_SEPOLICY_UNION +=
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
