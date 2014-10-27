@@ -26,7 +26,7 @@ $(call inherit-product, device/htc/enrc2b/enrc2b.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := full_enrc2b
+PRODUCT_NAME := ax_enrc2b
 PRODUCT_DEVICE := enrc2b
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Full AOSP on enrc2b
